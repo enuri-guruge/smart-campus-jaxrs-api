@@ -9,15 +9,15 @@ public class DataStore {
     // 1. Storage for Rooms
     private Map<String, Room> rooms = new ConcurrentHashMap<>();
 
-    // 2. Storage for Sensors (Add this now!)
+    // 2. Storage for Sensors
     private Map<String, Sensor> sensors = new ConcurrentHashMap<>();
 
     // 3. Storage for the Readings (Data from sensors)
     private Map<String, List<SensorReading>> readings = new ConcurrentHashMap<>();
 
     private DataStore() {
-        // Default data for testing
-        rooms.put("R1", new Room("R1", "Library", "1st Floor"));
+        // FIXED: Changed "1st Floor" to an integer (e.g., 50) to match the new Room constructor
+        rooms.put("R1", new Room("R1", "Library", 50));
     }
 
     public static synchronized DataStore getInstance() {
